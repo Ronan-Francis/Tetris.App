@@ -4,38 +4,73 @@
              x:Class="Tetris.MainPage">
 
     <ScrollView>
-        <VerticalStackLayout
-            Spacing="25"
-            Padding="30,0"
-            VerticalOptions="Center">
-
-            <Image
-                Source="dotnet_bot.png"
-                SemanticProperties.Description="Cute dot net bot waving hi to you!"
-                HeightRequest="200"
-                HorizontalOptions="Center" />
-
-            <Label
-                Text="Hello, World!"
-                SemanticProperties.HeadingLevel="Level1"
-                FontSize="32"
-                HorizontalOptions="Center" />
-
-            <Label
-                Text="Welcome to .NET Multi-platform App UI"
-                SemanticProperties.HeadingLevel="Level2"
-                SemanticProperties.Description="Welcome to dot net Multi platform App U I"
-                FontSize="18"
-                HorizontalOptions="Center" />
-
-            <Button
-                x:Name="CounterBtn"
-                Text="Click me"
-                SemanticProperties.Hint="Counts the number of times you click"
-                Clicked="OnCounterClicked"
-                HorizontalOptions="Center" />
-
-        </VerticalStackLayout>
+        <Grid x:Name="mainGrid"
+              VerticalOptions="Center"
+              HorizontalOptions="Center"
+              HeightRequest="750"
+              WidthRequest="350">
+            <!--#region mainGrid Row/Column Definitions-->
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <!--#endregion-->
+            <!--#region Hold -->
+            <VerticalStackLayout VerticalOptions="Center" HorizontalOptions="Center"
+                                   Grid.Row="0" Grid.Column="0">
+                <Label VerticalOptions="Center" HorizontalOptions="Center">Hold</Label>
+                <BoxView x:Name="Held"
+            Color="CornflowerBlue"
+             CornerRadius="10"
+             WidthRequest="40"
+             HeightRequest="40"
+             VerticalOptions="Center"
+             HorizontalOptions="Center" />
+            </VerticalStackLayout>
+            <!--#endregion-->
+            <!--#region GameGrid-->
+            <Grid x:Name="gameGrid"
+                  VerticalOptions="Center" HorizontalOptions="Center"
+                  Grid.Row="0" Grid.Column="1" Grid.RowSpan="3">
+            </Grid>
+            <!--#endregion-->
+            <!--#region Next Queue-->
+            <VerticalStackLayout VerticalOptions="Center" HorizontalOptions="Center"
+                                   Grid.Row="0" Grid.Column="2" Grid.RowSpan="2">
+                <Label VerticalOptions="Center" HorizontalOptions="Center">Next</Label>
+                <VerticalStackLayout x:Name="nextList">
+                    <BoxView x:Name="nextList1"
+                               Color="CornflowerBlue"
+                               CornerRadius="10"
+                               WidthRequest="40"
+                               HeightRequest="40"
+                               VerticalOptions="Center"
+                                HorizontalOptions="Center" />
+                    <BoxView x:Name="nextList2"
+                               Color="CornflowerBlue"
+                               CornerRadius="10"
+                               WidthRequest="40"
+                               HeightRequest="40"
+                               VerticalOptions="Center"
+                                HorizontalOptions="Center" />
+                    <BoxView x:Name="nextList3"
+                               Color="CornflowerBlue"
+                               CornerRadius="10"
+                               WidthRequest="40"
+                               HeightRequest="40"
+                               VerticalOptions="Center"
+                                HorizontalOptions="Center" />
+                </VerticalStackLayout>
+            </VerticalStackLayout>
+            <!--#endregion-->
+        </Grid>
+        
     </ScrollView>
 
 </ContentPage>
